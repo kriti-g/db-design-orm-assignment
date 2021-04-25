@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name="recipe")
+@Table(name="Recipe")
 public class Recipe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,9 +17,9 @@ public class Recipe {
     private Integer prepTime;
     private Integer cookTime;
 
-    @OneToMany(mappedBy = "course")
+    @OneToMany(mappedBy = "recipe")
     @JsonIgnore
-    private Ingredient ingredients;
+    private List<Ingredient> ingredients;
 
     public List<Ingredient> getIngredients() {
         return ingredients;
@@ -37,7 +37,7 @@ public class Recipe {
         this.id = id;
     }
 
-    public String getCuisineType() {
+    public CuisineType getCuisineType() {
         return cuisine;
     }
 
@@ -61,7 +61,7 @@ public class Recipe {
         this.description = description;
     }
 
-    public String getPrepTime() {
+    public Integer getPrepTime() {
         return prepTime;
     }
 
@@ -69,7 +69,7 @@ public class Recipe {
         this.prepTime = prepTime;
     }
 
-    public String getCookTime() {
+    public Integer getCookTime() {
         return cookTime;
     }
 
@@ -79,3 +79,5 @@ public class Recipe {
 
 
 }
+
+
