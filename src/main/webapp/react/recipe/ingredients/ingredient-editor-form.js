@@ -35,34 +35,11 @@ const IngredientEditorForm = () => {
                 className="form-control margin-bottom-10px"
                 onChange={(e) => setIngredient(ingredient => ({...ingredient, name: e.target.value}))}
                 value={ingredient.name}/>
-            <label>Seats</label>
+            <label>Measurement</label>
             <input
-                type="number"
                 className="form-control margin-bottom-10px"
-                value={ingredient.seats}
-                onChange={(e)=>setIngredient(ingredient => ({...ingredient, seats: parseInt(e.target.value)}))}/>
-            <label>Semester</label>
-            <select
-                className="form-control margin-bottom-10px"
-                value={ingredient.semester}
-                onChange={(e)=>setIngredient(ingredient => ({...ingredient, semester: e.target.value}))}>
-                <option>FALL</option>
-                <option>SPRING</option>
-                <option>SUMMER</option>
-            </select>
-            <label>Year</label>
-            <input
-                type="number"
-                className="form-control margin-bottom-10px"
-                value={ingredient.year}
-                onChange={(e)=>setIngredient(ingredient => ({...ingredient, year: parseInt(e.target.value)}))}/>
-            <label className="margin-bottom-10px">
-            <input
-                type="checkbox"
-                checked={ingredient.online}
-                onChange={(e)=>setIngredient(ingredient => ({...ingredient, online: e.target.checked}))}/>
-                &nbsp;Online
-            </label>
+                value={ingredient.measurement}
+                onChange={(e)=>setIngredient(ingredient => ({...ingredient, measurement: e.target.value}))}/>
             <br/>
             <button
                 onClick={() => updateIngredient(ingredient.id, ingredient)}

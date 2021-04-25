@@ -1,7 +1,7 @@
-import CourseList from "./courses/course-list";
-import SectionList from "./sections/section-list";
-import CourseEditorForm from "./courses/course-editor-form";
-import SectionEditorForm from "./sections/section-editor-form";
+import RecipeList from "./recipes/recipe-list";
+import IngredientList from "./ingredients/ingredient-list";
+import RecipeEditorForm from "./recipes/recipe-editor-form";
+import IngredientEditorForm from "./ingredients/ingredient-editor-form";
 
 const {HashRouter, Link, Route} = window.ReactRouterDOM;
  
@@ -10,17 +10,17 @@ const App = () => {
     return (
         <div className="container-fluid">
             <HashRouter>
-                <Route path={["/courses", "/"]} exact={true}>
-                    <CourseList/>
+                <Route path={["/recipes", "/"]} exact={true}>
+                    <RecipeList/>
                 </Route>
-                <Route path="/courses/:id" exact={true}>
-                    <CourseEditorForm/>
+                <Route path="/recipes/:id" exact={true}>
+                    <RecipeEditorForm/>
                 </Route>
-                <Route path="/courses/:courseId/sections" exact={true}>
-                    <SectionList/>
+                <Route path="/recipes/:recipeId/ingredients" exact={true}>
+                    <IngredientList/>
                 </Route>
-                <Route path="/sections/:sectionId" exact={true}>
-                    <SectionEditorForm/>
+                <Route path="/ingredients/:ingredientId" exact={true}>
+                    <IngredientEditorForm/>
                 </Route>
             </HashRouter>
         </div>

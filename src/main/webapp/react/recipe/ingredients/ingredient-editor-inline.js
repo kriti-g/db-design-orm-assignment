@@ -17,44 +17,9 @@ const IngredientEditorInline = ({ingredient, deleteIngredient, updateIngredient}
                     </div>
                     <div className="col">
                         <input
-                            type="number"
                             className="form-control"
-                            value={ingredientCopy.seats}
-                            onChange={(e)=>setIngredientCopy(ingredientCopy => ({...ingredientCopy, seats: parseInt(e.target.value)}))}/>
-                    </div>
-                    <div className="col">
-                        <select
-                            className="form-control"
-                            value={ingredientCopy.semester}
-                            onChange={(e)=>setIngredientCopy(ingredientCopy => ({...ingredientCopy, semester: e.target.value}))}>
-                            <option>FALL</option>
-                            <option>SPRING</option>
-                            <option>SUMMER</option>
-                        </select>
-                    </div>
-                    <div className="col">
-                        <input
-                            type="number"
-                            className="form-control"
-                            value={ingredientCopy.year}
-                            onChange={(e)=>setIngredientCopy(ingredientCopy => ({...ingredientCopy, year: parseInt(e.target.value)}))}/>
-                    </div>
-                    <div className="col">
-                        <label>
-                        <input
-                            type="checkbox"
-                            checked={ingredientCopy.online}
-                            onChange={(e)=>setIngredientCopy(ingredientCopy => ({...ingredientCopy, online: e.target.checked}))}/>
-                            &nbsp;
-                            Online
-                        </label>
-                    </div>
-                    <div className="col">
-                        <input
-                            type="date"
-                            className="form-control"
-                            value={ingredientCopy.startDate}
-                            onChange={(e)=>setIngredientCopy(ingredientCopy => ({...ingredientCopy, startDate: e.target.value}))}/>
+                            value={ingredientCopy.measurement}
+                            onChange={(e)=>setIngredientCopy(ingredientCopy => ({...ingredientCopy, measurement: e.target.value}))}/>
                     </div>
                     <div className="col-2">
                         <i className="fas fa-2x fa-check float-right margin-left-10px"
@@ -79,23 +44,7 @@ const IngredientEditorInline = ({ingredient, deleteIngredient, updateIngredient}
                     </div>
                     <div className="col">
                         <Link to={`/ingredients/${ingredientCopy.id}`}>
-                            {ingredientCopy.seats}
-                        </Link>
-                    </div>
-                    <div className="col">
-                        <Link to={`/ingredients/${ingredientCopy.id}`}>
-                            {ingredientCopy.semester}
-                        </Link>
-                    </div>
-                    <div className="col">
-                        <Link to={`/ingredients/${ingredientCopy.id}`}>
-                            {ingredientCopy.year}
-                        </Link>
-                    </div>
-                    <div className="col">
-                        <Link to={`/ingredients/${ingredientCopy.id}`}>
-                            {ingredientCopy.online && 'Online'}
-                            {!ingredientCopy.online && 'On Campus'}
+                            {ingredientCopy.measurement}
                         </Link>
                     </div>
                     <div className="col-1">

@@ -17,7 +17,7 @@ public class Recipe {
     private Integer prepTime;
     private Integer cookTime;
 
-    @OneToMany(mappedBy = "recipe")
+    @OneToMany(mappedBy = "course")
     @JsonIgnore
     private List<Ingredient> ingredients;
 
@@ -79,5 +79,3 @@ public class Recipe {
 
 
 }
-
-

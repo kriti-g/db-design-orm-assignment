@@ -40,9 +40,9 @@ const IngredientList = () => {
                     <div className="row">
                         <div className="col">
                             <input placeholder="Ingredient Name"
-                                   title="Please enter a name for the ingredient"
+                                   name="Please enter a name for the ingredient"
                                    className="form-control"
-                                   value={newIngredient.title}
+                                   value={newIngredient.name}
                                    onChange={(e) => setNewIngredient(newIngredient => ({...newIngredient, name: e.target.value}))}/>
                         </div>
                         <div className="col-2">
