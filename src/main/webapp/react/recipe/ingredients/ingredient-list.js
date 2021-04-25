@@ -45,6 +45,12 @@ const IngredientList = () => {
                                    value={newIngredient.name}
                                    onChange={(e) => setNewIngredient(newIngredient => ({...newIngredient, name: e.target.value}))}/>
                         </div>
+                        <div className="col">
+                            <input
+                                className="form-control"
+                                value={newIngredient.measurement}
+                                onChange={(e)=>setNewIngredient(newIngredient => ({...newIngredient, measurement: e.target.value}))}/>
+                        </div>
                         <div className="col-2">
                             <i className="fas float-right fa-plus fa-2x" onClick={() => createIngredientForRecipe(newIngredient)}></i>
                         </div>

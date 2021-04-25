@@ -1,8 +1,11 @@
 package com.example.springtemplate.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.text.SimpleDateFormat;
+import java.util.List;
 
 @Entity
 @Table(name="User")
@@ -16,6 +19,18 @@ public class User {
     private String password;
     private String email;
     private Date birthDate = new Date();
+
+    @OneToMany(mappedBy = "user")
+    @JsonIgnore
+    private List<Recipe> recipes;
+
+    public List<Recipe> getRecipes() {
+        return recipes;
+    }
+
+    public void setRecipes(List<Recipe> recipes) {
+        this.recipes = recipes;
+    }
 
     public Integer getId() { return id; }
     public void setId(Integer id) { this.id = id; }

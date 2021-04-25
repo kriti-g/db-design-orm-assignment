@@ -1,5 +1,5 @@
 import RecipeEditorInline from "./recipe-editor-inline";
-import recipeService from "./recipe-service"
+import recipeService, { createRecipeForUser, findRecipesForUser } from "./recipe-service"
 
 const RECIPE_URL = "http://localhost:8080/api/recipes"
 const { useState, useEffect } = React;
@@ -7,20 +7,21 @@ const { useState, useEffect } = React;
 const RecipeList = () => {
     const [recipes, setRecipes] = useState([])
     const [newRecipe, setNewRecipe] = useState({})
+    const {userId} = useParams()
     useEffect(() => {
-        findAllRecipes()
+        findRecipesForUser(userId)
     }, [])
-    const createRecipe = (recipe) =>
-        recipeService.createRecipe(recipe)
+    const createRecipeForUser = (recipe) =>
+        recipeService.createRecipe(userId, recipe)
             .then(recipe => {
-                setNewRecipe({title:''})
+                setNewRecipe({name:''})
                 setRecipes(recipes => ([...recipes, recipe]))
             })
     const updateRecipe = (id, newRecipe) =>
         recipeService.updateRecipe(id, newRecipe)
             .then(recipe => setRecipes(recipes => (recipes.map(recipe => recipe.id === id ? newRecipe : recipe))))
-    const findAllRecipes = () =>
-        recipeService.findAllRecipes()
+    const findRecipesForUser = () =>
+        recipeService.findRecipesForUser(userId)
             .then(recipes => setRecipes(recipes))
     const deleteRecipe = (id) =>
         recipeService.deleteRecipe(id)
@@ -33,11 +34,44 @@ const RecipeList = () => {
                     <div className="row">
                         <div className="col">
                             <input placeholder="Recipe Title"
-                                   title="Please enter a title for the recipe" className="form-control" value={newRecipe.name}
+                                   title="Please enter a name for the recipe" className="form-control" value={newRecipe.name}
                                    onChange={(e) => setNewRecipe(newRecipe => ({...newRecipe, name: e.target.value}))}/>
                         </div>
+                        <div className="col">
+
+                            <input
+                                className="form-control"
+                                value={newRecipe.description}
+                                onChange={(e)=>setNewRecipe(newRecipe => ({...newRecipe, description: e.target.value}))}/>
+                        </div>
+                        <div className="col">
+                            <select
+                                className="form-control"
+                                value={newRecipe.cuisine}
+                                onChange={(e) => setNewRecipe(newRecipe => ({...newRecipe, cuisine: e.target.value}))}>
+                                <option>GREEK</option>
+                                <option>TAIWANESE</option>
+                                <option>JAPANESE</option>
+                                <option>BRAZILIAN</option>
+                                <option>INDIAN</option>
+                            </select>
+                        </div>
+                        <div className="col">
+                            <input
+                                type="number"
+                                className="form-control"
+                                value={newRecipe.prepTime}
+                                onChange={(e)=>setNewRecipe(newRecipe => ({...newRecipe, prepTime: e.target.value}))}/>
+                        </div>
+                        <div className="col">
+                            <input
+                                type="number"
+                                className="form-control"
+                                value={newRecipe.cookTime}
+                                onChange={(e)=>setNewRecipe(newRecipe => ({...newRecipe, cookTime: e.target.value}))}/>
+                        </div>
                         <div className="col-3">
-                            <i className="fas fa-plus fa-2x float-right" onClick={() => createRecipe(newRecipe)}></i>
+                            <i className="fas fa-plus fa-2x float-right" onClick={() => createRecipeForUser(newRecipe)}></i>
                         </div>
                     </div>
                 </li>

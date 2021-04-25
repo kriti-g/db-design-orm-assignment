@@ -24,17 +24,17 @@ public class IngredientOrmDao {
 
     @PostMapping("/api/recipes/{recipeId}/ingredients")
     public Ingredient createIngredientForRecipe(
-            @PathVariable("recipeId") Integer cid,
+            @PathVariable("recipeId") Integer recipeId,
             @RequestBody Ingredient ingredient) {
         ingredient = ingredientRepository.save(ingredient);
-        Recipe recipe = recipeRepository.findById(cid).get();
+        Recipe recipe = recipeRepository.findById(recipeId).get();
         ingredient.setRecipe(recipe);
         return ingredientRepository.save(ingredient);
     }
 
-    @GetMapping("/api/recipes/{cid}/ingredients")
+    @GetMapping("/api/recipes/{recipeId}/ingredients")
     public List<Ingredient> findIngredientsForRecipe(
-            @PathVariable("cid") Integer recipeId) {
+            @PathVariable("recipeId") Integer recipeId) {
         Recipe recipe = recipeRepository.findById(recipeId).get();
         return recipe.getIngredients();
     }
