@@ -41,13 +41,13 @@ public class IngredientOrmDao {
     
     @GetMapping("/api/ingredients")
     public List<Ingredient> findAllIngredients() {
-        return (List<Ingredient>) ingredientRepository.findAll();
+        return ingredientRepository.findAllIngredients();
     }
     
     @GetMapping("/api/ingredients/{ingredientId}")
     public Ingredient findIngredientById(
             @PathVariable("ingredientId") Integer id) {
-        return ingredientRepository.findById(id).get();
+        return ingredientRepository.findIngredientById(id);
     }
 
     @PutMapping("/api/ingredients/{ingredientId}")

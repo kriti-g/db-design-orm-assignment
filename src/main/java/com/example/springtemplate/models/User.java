@@ -1,8 +1,8 @@
 package com.example.springtemplate.models;
 
 import javax.persistence.*;
-import java.text.SimpleDataFormat;
 import java.util.Date;
+import java.text.SimpleDateFormat;
 
 @Entity
 @Table(name="User")
@@ -32,7 +32,8 @@ public class User {
     public Date getBirthDate() { return birthDate; }
     public void setBirthDate(Date birthDate) { this.birthDate = birthDate; }
 
-    public User(String username, String password, String first_name, String last_name, String email, String date) {
+    public User(String username, String password, String first_name, String last_name,
+                String email, Date date) {
         this.username = username;
         this.password = password;
         this.firstName = first_name;

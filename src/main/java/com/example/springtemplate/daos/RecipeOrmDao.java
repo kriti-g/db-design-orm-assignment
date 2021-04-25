@@ -20,13 +20,13 @@ public class RecipeOrmDao {
     
     @GetMapping("/api/recipes")
     public List<Recipe> findAllRecipes() {
-        return (List<Recipe>) recipeRepository.findAll();
+        return recipeRepository.findAllRecipes();
     }
     
     @GetMapping("/api/recipes/{recipeId}")
     public Recipe findRecipeById(
             @PathVariable("recipeId") Integer id) {
-        return recipeRepository.findById(id).get();
+        return recipeRepository.findRecipeById(id);
     }
 
     // @GetMapping("/api/update/recipe/{recipeId}/{password}")
