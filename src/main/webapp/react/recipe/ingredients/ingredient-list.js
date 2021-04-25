@@ -15,7 +15,7 @@ const IngredientList = () => {
     const createIngredientForRecipe = (ingredient) =>
         ingredientService.createIngredientForRecipe(recipeId, ingredient)
             .then(ingredient => {
-                setNewIngredient({name:''})
+                setNewIngredient({name:'', measurement: ''})
                 setIngredients(ingredients => ([...ingredients, ingredient]))
             })
     const updateIngredient = (id, newIngredient) =>

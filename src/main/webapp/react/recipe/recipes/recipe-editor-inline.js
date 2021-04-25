@@ -57,7 +57,7 @@ const RecipeEditorInline = ({recipe, deleteRecipe, updateRecipe}) => {
                         <i className="fas fa-2x fa-check float-right margin-left-10px"
                            onClick={() => {
                                setEditing(false)
-                               updateCourse(recipeCopy.id, recipeCopy)
+                               updateRecipe(recipeCopy.id, recipeCopy)
                            }}></i>
                         <i className="fas fa-2x fa-undo float-right margin-left-10px"
                            onClick={() => setEditing(false)}></i>

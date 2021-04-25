@@ -55,7 +55,7 @@ const UserEditorInline = ({user, deleteUser, updateUser}) => {
                         <i className="fas fa-2x fa-check float-right margin-left-10px"
                            onClick={() => {
                                setEditing(false)
-                               updateCourse(userCopy.id, userCopy)
+                               updateUser(userCopy.id, userCopy)
                            }}></i>
                         <i className="fas fa-2x fa-undo float-right margin-left-10px"
                            onClick={() => setEditing(false)}></i>
@@ -69,7 +69,32 @@ const UserEditorInline = ({user, deleteUser, updateUser}) => {
                 <div className="row">
                     <div className="col">
                         <Link to={`/users/${userCopy.id}`}>
-                            {userCopy.name}
+                            {userCopy.firstName}
+                        </Link>
+                    </div>
+                    <div className="col">
+                        <Link to={`/users/${userCopy.id}`}>
+                            {userCopy.lastName}
+                        </Link>
+                    </div>
+                    <div className="col">
+                        <Link to={`/users/${userCopy.id}`}>
+                            {userCopy.username}
+                        </Link>
+                    </div>
+                    <div className="col">
+                        <Link to={`/users/${userCopy.id}`}>
+                            {userCopy.password}
+                        </Link>
+                    </div>
+                    <div className="col">
+                        <Link to={`/users/${userCopy.id}`}>
+                            {userCopy.email}
+                        </Link>
+                    </div>
+                    <div className="col">
+                        <Link to={`/users/${userCopy.id}`}>
+                            {userCopy.birthDate}
                         </Link>
                     </div>
                     <div className="col-1">

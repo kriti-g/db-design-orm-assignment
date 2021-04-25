@@ -44,8 +44,8 @@ const deleteRecipe = (id) =>
     })
 
 export default {
-    createRecipe: createRecipe,
-    findAllRecipes: findAllRecipes,
+    createRecipeForUser: createRecipeForUser,
+    findRecipesForUser: findRecipesForUser,
     findRecipeById: findRecipeById,
     updateRecipe: updateRecipe,
     deleteRecipe: deleteRecipe

@@ -31,41 +31,37 @@ const UserEditorForm = () => {
                 className="form-control margin-bottom-10px"
                 readOnly={true}
                 value={user.id}/>
-            <label>Name</label>
-            <input
-                className="form-control margin-bottom-10px"
-                onChange={(e) => setUser(user => ({...user, name: e.target.value}))}
-                value={user.name}/>
+            <label>First name</label>
             <input
                 className="form-control"
                 value={user.firstName}
                 onChange={(e)=>setUser(user => ({...user, firstName: e.target.value}))}/>
+            <label>Last name</label>
             <input
                 className="form-control"
                 value={user.lastName}
                 onChange={(e)=>setUser(user => ({...user, lastName: e.target.value}))}/>
-
+            <label>Username</label>
             <input
                 className="form-control"
                 value={user.username}
                 onChange={(e)=>setUser(user => ({...user, username: e.target.value}))}/>
-
+            <label>Password</label>
             <input
                 type="password"
                 className="form-control"
                 value={user.password}
                 onChange={(e)=>setUser(user => ({...user, password: e.target.value}))}/>
-
+            <label>Email</label>
             <input
                 className="form-control"
                 value={user.email}
                 onChange={(e)=>setUser(user => ({...user, email: e.target.value}))}/>
-
+            <label>Birth Date</label>
             <input
                 className="form-control"
                 value={user.birthDate}
                 onChange={(e)=>setUser(user => ({...user, birthDate: e.target.value}))}/>
-
             <button
                 onClick={() => updateUser(user.id, user)}
                 className="btn btn-success btn-block">Save</button>

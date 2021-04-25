@@ -1,8 +1,8 @@
 import RecipeEditorInline from "./recipe-editor-inline";
 import recipeService, { createRecipeForUser, findRecipesForUser } from "./recipe-service"
 
-const RECIPE_URL = "http://localhost:8080/api/recipes"
 const { useState, useEffect } = React;
+const {Link, useParams, useHistory} = window.ReactRouterDOM;
 
 const RecipeList = () => {
     const [recipes, setRecipes] = useState([])
@@ -12,9 +12,9 @@ const RecipeList = () => {
         findRecipesForUser(userId)
     }, [])
     const createRecipeForUser = (recipe) =>
-        recipeService.createRecipe(userId, recipe)
+        recipeService.createRecipeForUser(userId, recipe)
             .then(recipe => {
-                setNewRecipe({name:''})
+                setNewRecipe({name:'', description:'', cuisine: 'GREEK', prepTime: 0, cookTime: 0})
                 setRecipes(recipes => ([...recipes, recipe]))
             })
     const updateRecipe = (id, newRecipe) =>
@@ -40,6 +40,7 @@ const RecipeList = () => {
                         <div className="col">
 
                             <input
+                                placeholder="Description"
                                 className="form-control"
                                 value={newRecipe.description}
                                 onChange={(e)=>setNewRecipe(newRecipe => ({...newRecipe, description: e.target.value}))}/>
@@ -58,6 +59,7 @@ const RecipeList = () => {
                         </div>
                         <div className="col">
                             <input
+                                placeholder="0"
                                 type="number"
                                 className="form-control"
                                 value={newRecipe.prepTime}
@@ -65,20 +67,21 @@ const RecipeList = () => {
                         </div>
                         <div className="col">
                             <input
+                                placeholder="0"
                                 type="number"
                                 className="form-control"
                                 value={newRecipe.cookTime}
                                 onChange={(e)=>setNewRecipe(newRecipe => ({...newRecipe, cookTime: e.target.value}))}/>
                         </div>
                         <div className="col-3">
-                            <i className="fas fa-plus fa-2x float-right" onClick={() => createRecipeForUser(newRecipe)}></i>
+                            <i className="fas fa-plus fa-2x float-right" onClick={() => { console.log(newRecipe); createRecipeForUser(newRecipe); }}></i>
                         </div>
                     </div>
                 </li>
             {
                 recipes.map(recipe =>
                     <li key={recipe.id} className="list-group-item">
-                        <RecipeEditorInline key={recipe._id}
+                        <RecipeEditorInline key={recipe.id}
                             updateRecipe={updateRecipe}
                             deleteRecipe={deleteRecipe}
                             recipe={recipe}/>
