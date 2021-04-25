@@ -11,7 +11,7 @@ public class Recipe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    CuisineType cuisine;
+    private String cuisine;
     private String name;
     private String description;
     private Integer prepTime;
@@ -37,11 +37,11 @@ public class Recipe {
         this.id = id;
     }
 
-    public CuisineType getCuisineType() {
+    public String getCuisineType() {
         return cuisine;
     }
 
-    public void setCuisineType(CuisineType cuisine) {
+    public void setCuisineType(String cuisine) {
         this.cuisine = cuisine;
     }
 
