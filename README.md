@@ -1,12 +1,12 @@
 # db-design-orm-assignment
 
 Project Name: Recipes
-//Team: 
+Team Name: 
 
 Members:
-Kirti Gurubacharya - Section 03
-Jin Shutima Han - Section 03
-Muran Huang - Section 03
+Kirti Gurubacharya - Section 03, 
+Jin Shutima Han - Section 03, 
+Muran Huang - Section 03, 
 Rachel Jiang - Section 04
 
 Project Description: 
