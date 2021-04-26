@@ -14,7 +14,7 @@ Our project focuses on a user platform where they can input their recipes and vi
 ingredients and instructions to preparation and cooking time. From our interface, users are able to create their own account and navigate to a recipe list. 
 From there, they have the ability to add their recipes to the list and edit their recipes by including the ingredients and measurements necessary. 
 
-https://github.com/kriti-g/db-design-orm-assignment/blob/master/UML%20diagram/db_design_final_project_UML.pdf 
+UML Class Diagram: https://github.com/kriti-g/db-design-orm-assignment/blob/master/UML%20diagram/db_design_final_project_UML.pdf 
 
 User: 
 Our users are required to input their first name, last name, username, password, email and date of birth when using our interface. 
