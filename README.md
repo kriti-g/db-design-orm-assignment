@@ -1,10 +1,10 @@
 # db-design-orm-assignment
 
 Project Name: Recipes
-Team Name: 
+Team Name: Database Design 16
 
 Members:
-Kirti Gurubacharya - Section 03, 
+Kriti Gurubacharya - Section 03, 
 Jin Shutima Han - Section 03, 
 Muran Huang - Section 03, 
 Rachel Jiang - Section 04
@@ -17,16 +17,15 @@ From there, they have the ability to add their recipes to the list and edit thei
 UML Class Diagram: https://github.com/kriti-g/db-design-orm-assignment/blob/master/UML%20diagram/db_design_final_project_UML.pdf 
 
 User: 
-Our users are required to input their first name, last name, username, password, email and date of birth when using our interface. 
-This is a way of tracking the users that publish recipes on our platform. First and last name, username, password, and email are all strings, 
-while date of birth is formatted as a date including the exact time. 
+User information includes first and last name, username, password, and email, which are all strings. Date of birth is stored as a date with no time information.
 
 Recipe: 
 Our recipes contain the cuisine type, name, description, preparation time and cook time. Each recipe has its own distinct ID, 
 which will be useful as a foreign key for ingredient and instruction. The recipe cuisine type has choices of Greek, Indian, Taiwanese, 
 Japanese and Brazilian cuisines. The name is a string of the original name of the food, such as ‘Spanakopita’, which is a Greek cuisine. 
-The description is also a string, but translated to English, so users understand it better, which would translate Spanakopita to ‘Spinach Pie’. 
-Preparation and cook time are both integers in minutes. 
+The description is also a string and it explains what the food is in further detail. For example in the above example, it contains the name 
+but translated to English, so users understand it better - 'Spanakopita' to ‘Spinach Pie’. 
+Preparation and cook time are both integers, their value being in minutes. 
 
 Ingredient: 
 Our ingredients contain the name of the ingredient, measurement of the ingredient and the recipe ID, which is the foreign key to the recipe. 
@@ -54,7 +53,6 @@ CuisineType is our portable enumeration. Our recipe list is limited to Greek, Ta
 cuisine and are limited to these five cuisines. 
 
 User Interface Requirements: 
-In our web application, our users are first met with a page where they must input their first and last name, username, 
-password, email, and date of birth. On the users page, users can click to see which recipes a certain user has created. After submitting their user information, 
-they are brought to the recipes page where they can create their recipes to add to the already existing recipes list. The recipes page can be edited where recipes 
-may be deleted or edited. Additionally, users can click on “Ingredients” to add to the list of ingredients needed for their recipe. 
+In our web application, our users are first met with a page with a list of existing users, wherein they can create a new user using the form at the very top. Upon
+clicking on a user they are brought to the user's recipes page where they can create recipes associated with this user. Additionally, users can click on “Ingredients”
+to add to the list of ingredients needed for their recipe. All entries include inline editing, but an entry can be clicked on to see a full edit form page as well.
