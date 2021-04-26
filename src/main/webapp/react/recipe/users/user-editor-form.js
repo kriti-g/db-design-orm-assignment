@@ -58,6 +58,7 @@ const UserEditorForm = () => {
                 onChange={(e)=>setUser(user => ({...user, email: e.target.value}))}/>
             <label>Birth Date</label>
             <input
+                type="date"
                 className="form-control"
                 value={user.birthDate}
                 onChange={(e)=>setUser(user => ({...user, birthDate: e.target.value}))}/>

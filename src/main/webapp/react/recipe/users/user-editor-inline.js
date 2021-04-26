@@ -42,6 +42,7 @@ const UserEditorInline = ({user, deleteUser, updateUser}) => {
                     </div>
                     <div className="col">
                         <input
+                            type="date"
                             className="form-control"
                             value={userCopy.birthDate}
                             onChange={(e)=>setUserCopy(userCopy => ({...userCopy, birthDate: e.target.value}))}/>

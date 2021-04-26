@@ -64,6 +64,7 @@ const UserList = () => {
                     </div>
                     <div className="col">
                         <input
+                            type="date"
                             className="form-control"
                             value={newUser.birthDate}
                             onChange={(e)=>setNewUser(newUser => ({...newUser, birthDate: e.target.value}))}/>
