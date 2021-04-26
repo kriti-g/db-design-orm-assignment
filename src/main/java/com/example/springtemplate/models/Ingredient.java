@@ -52,4 +52,11 @@ public class Ingredient {
     public void setRecipe(Recipe recipe) {
         this.recipe = recipe;
     }
+
+    public Ingredient(String name, String measurement) {
+        this.name = name;
+        this.measurement = measurement;
+    }
+
+    public Ingredient() {}
 }

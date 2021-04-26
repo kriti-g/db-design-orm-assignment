@@ -50,22 +50,13 @@ public class RecipeOrmDao {
         return user.getRecipes();
     }
 
-    // @GetMapping("/api/update/recipe/{recipeId}/{password}")
-    // public Recipe updateRecipe(
-    //         @PathVariable("recipeId") Integer id,
-    //         @PathVariable("password") String newPass) {
-    //     Recipe recipe = this.findRecipeById(id);
-    //     recipe.setTitle(newPass);
-    //     return recipeRepository.save(recipe);
-    // }
-
     @PutMapping("/api/recipes/{recipeId}")
     public Recipe updateRecipe(
             @PathVariable("recipeId") Integer id,
             @RequestBody() Recipe newRecipe) {
         Recipe recipe = this.findRecipeById(id);
         recipe.setName(newRecipe.getName());
-        recipe.setCuisineType(newRecipe.getCuisineType());
+        recipe.setCuisine(newRecipe.getCuisine());
         recipe.setDescription(newRecipe.getDescription());
         recipe.setPrepTime(newRecipe.getPrepTime());
         recipe.setCookTime(newRecipe.getCookTime());

@@ -1,7 +1,7 @@
 import userService from "./user-service"
 
 const {useState, useEffect} = React
-const {useParams, useHistory} = window.ReactRouterDOM;
+const {useParams, useHistory, Link} = window.ReactRouterDOM;
 const USER_URL = "http://localhost:8080/api/users";
 
 const UserEditorForm = () => {
@@ -20,7 +20,6 @@ const UserEditorForm = () => {
     const deleteUser = (id) =>
         userService.deleteUser(id)
             .then(() => history.goBack())
-
     return (
         <div>
             <h2>
@@ -62,6 +61,16 @@ const UserEditorForm = () => {
                 className="form-control"
                 value={user.birthDate}
                 onChange={(e)=>setUser(user => ({...user, birthDate: e.target.value}))}/>
+            <div className="col-1">
+                <Link to={`/users`}>
+                    All Users
+                </Link>
+            </div>
+            <div className="col-1">
+                <Link to={`/users/${id}/recipes`}>
+                    Recipes
+                </Link>
+            </div>
             <button
                 onClick={() => updateUser(user.id, user)}
                 className="btn btn-success btn-block">Save</button>

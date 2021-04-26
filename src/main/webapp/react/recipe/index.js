@@ -21,13 +21,13 @@ const App = () => {
                 <Route path="/users/:userId/recipes" exact={true}>
                     <RecipeList/>
                 </Route>
-                <Route path="/recipes/:recipeId" exact={true}>
+                <Route path="/users/:userId/recipes/:id" exact={true}>
                     <RecipeEditorForm/>
                 </Route>
-                <Route path="/recipes/:recipeId/ingredients" exact={true}>
+                <Route path="/users/:userId/recipes/:recipeId/ingredients" exact={true}>
                     <IngredientList/>
                 </Route>
-                <Route path="/ingredients/:ingredientId" exact={true}>
+                <Route path="/users/:userId/recipes/:recipeId/ingredients/:id" exact={true}>
                     <IngredientEditorForm/>
                 </Route>
             </HashRouter>

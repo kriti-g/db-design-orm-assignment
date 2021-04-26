@@ -1,12 +1,13 @@
 import recipeService from "./recipe-service"
 
 const {useState, useEffect} = React
-const {useParams, useHistory} = window.ReactRouterDOM;
+const {useParams, useHistory, Link} = window.ReactRouterDOM;
+
 const RECIPE_URL = "http://localhost:8080/api/recipes";
 
 const RecipeEditorForm = () => {
     const [recipe, setRecipe] = useState({})
-    const {id} = useParams()
+    const {userId, id} = useParams()
     const history = useHistory()
     useEffect(() => {
         findRecipeById(id)
@@ -20,7 +21,6 @@ const RecipeEditorForm = () => {
     const deleteRecipe = (id) =>
         recipeService.deleteRecipe(id)
             .then(() => history.goBack())
-    
     return (
         <div>
             <h2>
@@ -64,6 +64,21 @@ const RecipeEditorForm = () => {
                 className="form-control margin-bottom-10px"
                 onChange={(e) => setRecipe(recipe => ({...recipe, cookTime: e.target.value}))}
                 value={recipe.cookTime}/>
+            <div>
+                <Link to={`/users/${userId}`}>
+                    Recipe Owner
+                </Link>
+            </div>
+            <div>
+                <Link to={`/users/${userId}/recipes`}>
+                    Owner's Recipe List
+                </Link>
+            </div>
+            <div>
+                <Link to={`/users/${userId}/recipes/${id}/ingredients`}>
+                    Recipe Ingredients
+                </Link>
+            </div>
             <button
                 onClick={() => updateRecipe(recipe.id, recipe)}
                 className="btn btn-success btn-block">Save</button>

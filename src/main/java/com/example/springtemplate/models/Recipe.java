@@ -41,6 +41,7 @@ public class Recipe {
         this.user = user;
     }
 
+
     public Integer getId() {
         return id;
     }
@@ -49,11 +50,11 @@ public class Recipe {
         this.id = id;
     }
 
-    public String getCuisineType() {
+    public String getCuisine() {
         return cuisine;
     }
 
-    public void setCuisineType(String cuisine) {
+    public void setCuisine(String cuisine) {
         this.cuisine = cuisine;
     }
 
@@ -89,5 +90,15 @@ public class Recipe {
         this.cookTime = cookTime;
     }
 
+    public Recipe(String name, String description, String cuisine, Integer cookTime,
+                  Integer prepTime) {
+        this.name = name;
+        this.description = description;
+        this.cuisine = cuisine;
+        this.cookTime = cookTime;
+        this.prepTime = prepTime;
+    }
+
+    public Recipe() {}
 
 }

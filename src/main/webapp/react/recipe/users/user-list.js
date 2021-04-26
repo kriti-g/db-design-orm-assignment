@@ -13,7 +13,7 @@ const UserList = () => {
     const createUser = (user) =>
         userService.createUser(user)
             .then(user => {
-                setNewUser({title:''})
+                setNewUser({lastName:'', firstName: '', email: '', password: '', username: '', birthDate: '' })
                 setUsers(users => ([...users, user]))
             })
     const updateUser = (id, newUser) =>

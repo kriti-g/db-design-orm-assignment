@@ -8,7 +8,7 @@ export const createRecipeForUser = (userId, recipe) =>
         body: JSON.stringify(recipe),
         headers: {'content-type': 'application/json'}
     })
-    .then(response => response.json())
+        .then(response => response.json())
 
 export const findRecipesForUser = (uid) =>
     fetch(`${USER_URL}/${uid}/recipes`)

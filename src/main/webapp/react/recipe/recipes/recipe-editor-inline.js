@@ -1,9 +1,10 @@
 const {useState, useEffect } = React;
-const {Link} = window.ReactRouterDOM;
+const {Link, useParams} = window.ReactRouterDOM;
 
 const RecipeEditorInline = ({recipe, deleteRecipe, updateRecipe}) => {
     const [recipeCopy, setRecipeCopy] = useState(recipe)
     const [editing, setEditing] = useState(false)
+    const {userId} = useParams();
     return(
         <div>
             {
@@ -49,7 +50,7 @@ const RecipeEditorInline = ({recipe, deleteRecipe, updateRecipe}) => {
                             onChange={(e)=>setRecipeCopy(recipeCopy => ({...recipeCopy, cookTime: e.target.value}))}/>
                     </div>
                     <div className="col-1">
-                        <Link to={`/recipes/${recipeCopy.id}/ingredients`}>
+                        <Link to={`/users/${userId}/recipes/${recipeCopy.id}/ingredients`}>
                             Ingredients
                         </Link>
                     </div>
@@ -70,12 +71,24 @@ const RecipeEditorInline = ({recipe, deleteRecipe, updateRecipe}) => {
                 !editing &&
                 <div className="row">
                     <div className="col">
-                        <Link to={`/recipes/${recipeCopy.id}`}>
+                        <Link to={`/users/${userId}/recipes/${recipeCopy.id}`}>
                             {recipeCopy.name}
                         </Link>
                     </div>
+                    <div className="col">
+                            {recipeCopy.description}
+                    </div>
+                    <div className="col">
+                        {recipeCopy.cuisine}
+                    </div>
+                    <div className="col">
+                        {recipeCopy.prepTime}
+                    </div>
+                    <div className="col">
+                        {recipeCopy.cookTime}
+                    </div>
                     <div className="col-1">
-                        <Link to={`/recipes/${recipeCopy.id}/ingredients`}>
+                        <Link to={`/users/${userId}/recipes/${recipeCopy.id}/ingredients`}>
                             Ingredients
                         </Link>
                     </div>

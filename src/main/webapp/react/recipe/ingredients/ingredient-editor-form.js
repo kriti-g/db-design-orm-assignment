@@ -1,14 +1,14 @@
 import ingredientService from "./ingredient-service"
 
 const {useState, useEffect} = React
-const {useParams, useHistory} = window.ReactRouterDOM;
+const {useParams, useHistory, Link} = window.ReactRouterDOM;
 
 const IngredientEditorForm = () => {
     const [ingredient, setIngredient] = useState({})
-    const {ingredientId} = useParams()
+    const {userId, recipeId, id} = useParams()
     const history = useHistory()
     useEffect(() => {
-        findIngredientById(ingredientId)
+        findIngredientById(id)
     }, []);
     const findIngredientById = (id) =>
         ingredientService.findIngredientById(id)
@@ -40,6 +40,16 @@ const IngredientEditorForm = () => {
                 className="form-control margin-bottom-10px"
                 value={ingredient.measurement}
                 onChange={(e)=>setIngredient(ingredient => ({...ingredient, measurement: e.target.value}))}/>
+            <div>
+                <Link to={`/users/${userId}/recipes/${recipeId}`}>
+                    Recipe
+                </Link>
+            </div>
+            <div>
+                <Link to={`/users/${userId}/recipes/${recipeId}/ingredients`}>
+                    Recipe Ingredients
+                </Link>
+            </div>
             <br/>
             <button
                 onClick={() => updateIngredient(ingredient.id, ingredient)}

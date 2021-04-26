@@ -1,12 +1,13 @@
 import RecipeEditorInline from "./recipe-editor-inline";
-import recipeService, { createRecipeForUser, findRecipesForUser } from "./recipe-service"
+import recipeService from "./recipe-service"
 
 const { useState, useEffect } = React;
 const {Link, useParams, useHistory} = window.ReactRouterDOM;
 
+
 const RecipeList = () => {
     const [recipes, setRecipes] = useState([])
-    const [newRecipe, setNewRecipe] = useState({})
+    const [newRecipe, setNewRecipe] = useState({cuisine: 'GREEK'})
     const {userId} = useParams()
     useEffect(() => {
         findRecipesForUser(userId)
@@ -14,7 +15,7 @@ const RecipeList = () => {
     const createRecipeForUser = (recipe) =>
         recipeService.createRecipeForUser(userId, recipe)
             .then(recipe => {
-                setNewRecipe({name:'', description:'', cuisine: 'GREEK', prepTime: 0, cookTime: 0})
+                setNewRecipe({name:'', description:'', cuisine: 'GREEK', prepTime: 0, cookTime: 0});
                 setRecipes(recipes => ([...recipes, recipe]))
             })
     const updateRecipe = (id, newRecipe) =>
@@ -28,7 +29,11 @@ const RecipeList = () => {
             .then(recipes => setRecipes(recipes => recipes.filter(recipe => recipe.id !== id)))
     return(
         <div>
-            <h2>Recipes</h2>
+            <h2>
+                <Link onClick={() => history.back()}>
+                    <i className="fas fa-arrow-left margin-right-10px"></i>
+                </Link>
+                Recipes</h2>
             <ul className="list-group">
                 <li className="list-group-item">
                     <div className="row">

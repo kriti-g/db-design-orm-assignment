@@ -1,9 +1,10 @@
 const {useState, useEffect } = React;
-const {Link} = window.ReactRouterDOM;
+const {Link, useParams} = window.ReactRouterDOM;
 
 const IngredientEditorInline = ({ingredient, deleteIngredient, updateIngredient}) => {
     const [ingredientCopy, setIngredientCopy] = useState(ingredient)
     const [editing, setEditing] = useState(false)
+    const {userId, recipeId} = useParams()
     return(
         <div>
             {
@@ -38,12 +39,12 @@ const IngredientEditorInline = ({ingredient, deleteIngredient, updateIngredient}
                 !editing &&
                 <div className="row">
                     <div className="col">
-                        <Link to={`/ingredients/${ingredientCopy.id}`}>
+                        <Link to={`/users/${userId}/recipes/${recipeId}/ingredients/${ingredientCopy.id}`}>
                             {ingredientCopy.name}
                         </Link>
                     </div>
                     <div className="col">
-                        <Link to={`/ingredients/${ingredientCopy.id}`}>
+                        <Link to={`/users/${userId}/recipes/${recipeId}/ingredients/${ingredientCopy.id}`}>
                             {ingredientCopy.measurement}
                         </Link>
                     </div>

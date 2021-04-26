@@ -22,7 +22,7 @@ public class UserOrmDao {
         return userRepository.findAllUsers();
     }
     
-    @GetMapping("/api/user/{userId}")
+    @GetMapping("/api/users/{userId}")
     public User findUserById(
             @PathVariable("userId") Integer id) {
         return userRepository.findUserById(id);
