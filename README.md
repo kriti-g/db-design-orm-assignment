@@ -1,7 +1,7 @@
 # db-design-orm-assignment
 
 Project Name: Recipes
-Team: 
+//Team: 
 
 Members:
 Kirti Gurubacharya - Section 03
